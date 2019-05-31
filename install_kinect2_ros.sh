@@ -1,7 +1,6 @@
 #!/bin/bash -e
 #iai_kinect2安装
 echo -e "\033[42;37mCreating work space for iai_kinect2...\033[0m"
-echo "export ROS_DISTRO=kinetic" >> ~/.bashrc
 export ROS_DISTRO=kinetic
 #不source就无法在脚本使用catkin_make
 source /opt/ros/kinetic/setup.bash
@@ -21,7 +20,7 @@ rosdep install -r --from-paths .
 echo -e "\033[42;37mBuilding iai_kinect2...\033[0m"
 cd ~/catkin_ws
 catkin_make -DCMAKE_BUILD_TYPE="Release"
-echo "source ~/catkin_ws/devel/setup.bash --extended" >> ~/.bashrc
+source ~/catkin_ws/devel/setup.bash
 ROS_PACKAGE_PATH=~/catkin_ws/src:$ROS_PACKAGE_PATH
 ROS_WORKSPACE=~/catkin_ws/src
 source ~/.bashrc
