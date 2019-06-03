@@ -5,6 +5,7 @@ source /opt/ros/kinetic/setup.bash
 if [ ! -d "~/turtlebot2i/src" ]; then
   echo -e "\033[42;37mCreating work space for turtlebot2i...\033[0m"
   mkdir -p ~/turtlebot2i/src
+  echo "source ~/turtlebot2i/devel/setup.bash --extended" >> ~/.bashrc
 fi
 #下载turtlebot2i及相关功能包源码并编译
 echo -e "\033[42;37mDowloading and building turtlebot2i pkg...\033[0m"
@@ -14,7 +15,6 @@ cd ~/turtlebot2i
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 echo -e "\033[42;37mSetting environment variables...\033[0m"
-echo "source ~/turtlebot2i/devel/setup.bash --extended" >> ~/.bashrc
 echo -e "alias goros='source devel/setup.sh'\nexport TURTLEBOT_3D_SENSOR=kinect2\nexport TURTLEBOT_3D_SENSOR2=sr300\nexport TURTLEBOT_BATTERY=None\nexport TURTLEBOT_STACKS=interbotix\nexport TURTLEBOT_ARM=pincher" >> ~/.bashrc
 source ~/.bashrc
 rospack profile

@@ -1,12 +1,13 @@
 #!/bin/bash -e
 #iai_kinect2安装
-echo -e "\033[42;37mCreating work space for iai_kinect2...\033[0m"
 export ROS_DISTRO=kinetic
 #不source就无法在脚本使用catkin_make
 source /opt/ros/kinetic/setup.bash
 cd ~
 if [ ! -d "catkin_ws/src" ]; then
+  echo -e "\033[42;37mCreating work space for iai_kinect2...\033[0m"
   mkdir -p catkin_ws/src
+  echo "source ~/catkin_ws/devel/setup.bash --extended" >> ~/.bashrc
 fi
 echo -e "\033[42;37mDownloading iai_kinect2...\033[0m"
 cd ~/catkin_ws/src/
