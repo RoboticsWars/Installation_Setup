@@ -1,6 +1,9 @@
 #!/bin/bash -e
 cd ~
 source /opt/ros/kinetic/setup.bash
+#安装Realsense功能包
+echo -e "\033[42;37mInstalling realsense packages...\033[0m"
+sudo apt install ros-kinetic-librealsense ros-kinetic-realsense-camera
 #创建turtlebot2i工作空间
 if [ ! -d "~/turtlebot2i/src" ]; then
   echo -e "\033[42;37mCreating work space for turtlebot2i...\033[0m"
