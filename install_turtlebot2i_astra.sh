@@ -4,6 +4,9 @@ source /opt/ros/kinetic/setup.bash
 #安装Realsense功能包
 echo -e "\033[42;37mInstalling realsense packages...\033[0m"
 sudo apt install ros-kinetic-librealsense ros-kinetic-realsense-camera
+#安装rtabmap_ros功能包
+echo -e "\033[42;37mInstalling rtabmap_ros packages...\033[0m"
+sudo apt install ros-kinetic-rtabmap-ros -y
 #创建turtlebot2i工作空间
 if [ ! -d "~/turtlebot2i/src" ]; then
   echo -e "\033[42;37mCreating work space for turtlebot2i...\033[0m"
@@ -31,6 +34,7 @@ echo -e "\033[42;37mSetting udev rules...\033[0m"
 cd ~/turtlebot2i/
 source devel/setup.sh
 rosrun kobuki_ftdi create_udev_rules
+rosrun astra_camera create_udev_rules
 cd ~/turtlebot2i/src/turtlebot2i_misc
 echo -e "\033[42;37mPlease modify the serial numbers in 99-turtlebot2i.rules manually.\033[0m"
 udevadm info -a -n /dev/ttyUSB0 | grep '{serial}' | head -n1
