@@ -31,7 +31,7 @@ echo -e "\033[42;37mSetting udev rules...\033[0m"
 cd ~/turtlebot2i/
 source devel/setup.sh
 rosrun kobuki_ftdi create_udev_rules
-cd ~/turtlebot2i/src/Turtlebot2i_KinectV2_SR300/turtlebot2i_misc
+cd ~/turtlebot2i/src/turtlebot2i_misc
 echo -e "\033[42;37mPlease modify the serial numbers in 99-turtlebot2i.rules manually.\033[0m"
 udevadm info -a -n /dev/ttyUSB0 | grep '{serial}' | head -n1
 udevadm info -a -n /dev/ttyUSB1 | grep '{serial}' | head -n1
