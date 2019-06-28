@@ -11,7 +11,7 @@ sudo apt update
 sudo apt install ros-kinetic-desktop-full -y
 #配置依赖项
 echo -e "\033[42;37mInitializing rosdep...\033[0m"
-apt-cache search ros-kinetic
+apt search ros-kinetic
 sudo rosdep init
 rosdep update
 #环境变量设置
