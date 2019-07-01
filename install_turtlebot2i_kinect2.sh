@@ -37,5 +37,5 @@ udevadm info -a -n /dev/ttyUSB1 | grep '{serial}' | head -n1
 echo -e "\033[42;37mReplace the ******** with serial numbers.\033[0m"
 gedit 99-turtlebot2i.rules
 sudo cp ./99-turtlebot2i.rules /etc/udev/rules.d/
-echo -e "\033[42;37mInstallation complete!\033[0m"
+echo -e "\033[42;37mInstallation complete! \033[0m"
 

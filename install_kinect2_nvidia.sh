@@ -22,7 +22,7 @@ echo -e "\033[42;37mInstalling OpenGL libraries...\033[0m"
 sudo dpkg -i debs/libglfw3*deb; sudo apt install -f; sudo apt install libgl1-mesa-dri-lts-vivid -y
 #安装OpenNI2
 echo -e "\033[42;37mInstalling OpenNI2 ...\033[0m"
-sudo apt install libopenni2-dev
+sudo apt install libopenni2-dev -y
 #编译libfreenect2
 echo -e "\033[42;37mCompiling libfreenect2...\033[0m"
 cd ~/libfreenect2
