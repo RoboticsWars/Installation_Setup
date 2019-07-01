@@ -22,8 +22,13 @@ echo -e "\033[42;37mInstalling OpenGL libraries...\033[0m"
 sudo dpkg -i debs/libglfw3*deb; sudo apt install -f; sudo apt install libgl1-mesa-dri-lts-vivid -y
 #安装OpenCL的支持库
 echo -e "\033[42;37mInstalling OpenCL libraries...\033[0m"
-echo -e "\033[44;37mYou need to press Enter soon!\033[0m"
-sudo apt-add-repository ppa:floe/beignet; sudo apt install beignet beignet-dev -y
+sudo apt install beignet beignet-dev -y
+#安装VAAPI
+echo -e "\033[42;37mInstalling VAAPI ...\033[0m"
+sudo apt install libva-dev libjpeg-dev
+#安装OpenNI2
+echo -e "\033[42;37mInstalling OpenNI2 ...\033[0m"
+sudo apt install libopenni2-dev
 #编译libfreenect2
 echo -e "\033[42;37mCompiling libfreenect2...\033[0m"
 cd ~/libfreenect2
@@ -35,4 +40,5 @@ sudo make install
 echo -e "\033[42;37mSetting up udev rules\033[0m"
 cd ~/libfreenect2
 sudo cp platform/linux/udev/90-kinect2.rules /etc/udev/rules.d/
-echo -e "\033[42;37mNow you can test your kinect2 device.\033[0m"
+#安装完毕，可以进行驱动测试。运行~/libfreenect2/build/bin/Protonect.
+echo -e "\033[42;37mNow you can test your kinect2 device. Run the program ~/libfreenect2/build/bin/Protonect. \033[0m"
