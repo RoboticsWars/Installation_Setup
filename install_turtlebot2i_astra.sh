@@ -11,7 +11,7 @@ sudo apt install ros-kinetic-rtabmap-ros -y
 if [ ! -d "~/turtlebot2i/src" ]; then
   echo -e "\033[42;37mCreating work space for turtlebot2i...\033[0m"
   mkdir -p ~/turtlebot2i/src
-  echo "source ~/turtlebot2i/devel/setup.bash --extended" >> ~/.bashrc
+  echo "source ~/turtlebot2i/devel/setup.bash --extend" >> ~/.bashrc
 fi
 #下载turtlebot2i及相关功能包源码并编译
 echo -e "\033[42;37mDowloading and building turtlebot2i pkg...\033[0m"

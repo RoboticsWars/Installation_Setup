@@ -3,15 +3,17 @@
 echo -e "\033[42;37mInstalling ssh ...\033[0m"
 sudo apt install openssh-server -y
 #新建工作空间
-echo -e "\033[42;37mCreating a new workspace named catkin_ws ...\033[0m"
 source /opt/ros/kinetic/setup.bash
 cd ~/
-mkdir -p catkin_ws/src
-cd catkin_ws/src/
+if [ ! -d "catkin_ws/src" ]; then
+  echo -e "\033[42;37mCreating a new workspace named catkin_ws ...\033[0m"
+  mkdir -p catkin_ws/src
+  echo "source ~/catkin_ws/devel/setup.bash --extend" >> ~/.bashrc
+fi
+cd ~/catkin_ws/src/
 catkin_init_workspace
-cd ..
+cd ~/catkin_ws/
 catkin_make
-echo "source ~/catkin_ws/devel/setup.bash --extended" >> ~/.bashrc
 source ~/.bashrc
 #源码安装Robocup@Home Education的ROS例程：
 echo -e "\033[42;37mDownload and build Robocup@Home Education source code. \033[0m"

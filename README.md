@@ -1,8 +1,8 @@
 # Installation_Setup
 安装ROS和配置驱动用的脚本文件
 * install_ros.sh 安装ROS Kinetic和turtlebot2相关的功能包（其他脚本文件均不包括turtlebot2功能包的安装）
-* install_kinect2_intel.sh 安装kinect2的驱动（intel显卡）
-* intall_kinect2_nvidia.sh 安装kinect2的驱动（jetson开发板）
+* install_kinect2_intel.sh 安装kinect2的驱动（Intel显卡的电脑）
+* install_kinect2_nvidia.sh 安装kinect2的驱动（Nvidia jetson开发板）
 * install_kinect2_ros.sh 安装kinect2的ROS功能包（先需要安装kinect2驱动）
 * install_turtlebot2i_kinect2.sh 安装turtlebot2i配kinect2的ROS功能包，不包括kinect2的安装
 * install_turtlebot2i_astra.sh 安装turtlebot2i配astra的ROS功能包，包括astra的安装
