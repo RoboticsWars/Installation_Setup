@@ -19,4 +19,4 @@ git clone https://github.com/turtlebot/turtlebot_arm.git
 cd ..
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
-echo -e "\033[42;37mInstallation complete! \033[0m
+echo -e "\033[42;37mInstallation complete! \033[0m"
