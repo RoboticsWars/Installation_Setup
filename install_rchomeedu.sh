@@ -36,8 +36,7 @@ sudo -H pip install pocketsphinx
 sudo apt install jackd2 -y
 jack_control start
 cd ~/Downloads/
-wget https://sourceforge.net/projects/cmusphinx/files/Acoustic%20and%20Language%20Models/Archive/US%20English%20HUB4WSJ%20Acoustic%20Model/hub4wsj_sc_8k.tar.gz/download
-mv download hub4wsj_sc_8k.tar.gz
+wget -O hub4wsj_sc_8k.tar.gz https://sourceforge.net/projects/cmusphinx/files/Acoustic%20and%20Language%20Models/Archive/US%20English%20HUB4WSJ%20Acoustic%20Model/hub4wsj_sc_8k.tar.gz/download
 tar -xzvf hub4wsj_sc_8k.tar.gz
 sudo mkdir -p /usr/local/share/pocketsphinx/model/en-us/en-us/
 sudo cp ~/Downloads/hub4wsj_sc_8k/* /usr/local/share/pocketsphinx/model/en-us/en-us/
@@ -79,5 +78,7 @@ sudo apt install ros-kinetic-opencv-apps -y
 echo -e "\033[42;37mInstalling dynamixel_motor package ...\033[0m"
 sudo apt install ros-kinetic-dynamixel-motor -y
 #下载HumaRobotics Dynamixel Library
+echo -e "\033[42;37mDownloading HumaRobotics Dynamixel Library ...\033[0m"
 cd ~/catkin_ws/src/
 git clone https://github.com/HumaRobotics/dynamixel_hr.git
+echo -e "\033[42;37mInstallation complete! \033[0m"

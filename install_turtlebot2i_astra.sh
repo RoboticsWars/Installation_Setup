@@ -3,7 +3,7 @@ cd ~
 source /opt/ros/kinetic/setup.bash
 #安装Realsense功能包
 echo -e "\033[42;37mInstalling realsense packages...\033[0m"
-sudo apt install ros-kinetic-librealsense ros-kinetic-realsense-camera
+sudo apt install ros-kinetic-librealsense ros-kinetic-realsense-camera -y
 #安装rtabmap_ros功能包
 echo -e "\033[42;37mInstalling rtabmap_ros packages...\033[0m"
 sudo apt install ros-kinetic-rtabmap-ros -y
@@ -42,5 +42,5 @@ udevadm info -a -n /dev/ttyUSB1 | grep '{serial}' | head -n1
 echo -e "\033[42;37mReplace the ******** with serial numbers.\033[0m"
 gedit 99-turtlebot2i.rules
 sudo cp ./99-turtlebot2i.rules /etc/udev/rules.d/
-echo -e "\033[42;37mInstallation complete!\033[0m"
+echo -e "\033[42;37mInstallation complete! \033[0m"
 
