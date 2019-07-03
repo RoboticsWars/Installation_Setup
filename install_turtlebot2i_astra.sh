@@ -19,8 +19,6 @@ cd ~/turtlebot2i/src
 git clone https://github.com/Interbotix/turtlebot2i.git .
 git clone https://github.com/Interbotix/arbotix_ros.git -b turtlebot2i
 git clone https://github.com/Interbotix/phantomx_pincher_arm.git
-git clone https://github.com/Interbotix/ros_astra_camera -b filterlibrary
-git clone https://github.com/Interbotix/ros_astra_launch
 cd ~/turtlebot2i
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
@@ -34,7 +32,6 @@ echo -e "\033[42;37mSetting udev rules...\033[0m"
 cd ~/turtlebot2i/
 source devel/setup.sh
 rosrun kobuki_ftdi create_udev_rules
-rosrun astra_camera create_udev_rules
 cd ~/turtlebot2i/src/turtlebot2i_misc
 echo -e "\033[42;37mPlease modify the serial numbers in 99-turtlebot2i.rules manually.\033[0m"
 udevadm info -a -n /dev/ttyUSB0 | grep '{serial}' | head -n1

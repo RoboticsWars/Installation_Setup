@@ -51,20 +51,17 @@ sed -i "s/ubu/turtlebot/g"  CMakeLists.txt
 cd ~/catkin_ws/
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
-#安装奥比中光Astra深度相机驱动
-echo -e "\033[42;37mInstalling Astra driver ...\033[0m"
-cd ~/Downloads/
-wget http://dl.orbbec3d.com/dist/openni2/OpenNI_2.3.0.55.zip
-unzip OpenNI_2.3.0.55.zip
-cd OpenNI_2.3.0.55/Linux/OpenNI-Linux-x64-2.3.0.55/
-chmod a+x install.sh
-sudo ./install.sh
-source OpenNIDevEnvironment
-cd Samples/SimpleViewer
-make
-#安装奥比中光Astra的ROS功能包
+#安装奥比中光Astra的ROS驱动和功能包
 echo -e "\033[42;37mInstalling Astra packages ...\033[0m"
-sudo apt install ros-kinetic-astra-camera ros-kinetic-astra-launch -y
+cd ~/catkin_ws/src
+git clone https://github.com/Interbotix/ros_astra_camera.git -b filterlibrary
+git clone https://github.com/Interbotix/ros_astra_launch.git
+cd ~/catkin_ws
+rosdep install --from-paths src --ignore-src -r -y
+catkin_make
+rospack profile
+echo -e "\033[42;37mSetting udev rules...\033[0m"
+rosrun astra_camera create_udev_rules
 #安装uvc功能包
 echo -e "\033[42;37mInstalling uvc packages ...\033[0m"
 sudo apt install ros-kinetic-uvc-camera ros-kinetic-libuvc* -y
