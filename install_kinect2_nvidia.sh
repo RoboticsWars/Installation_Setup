@@ -21,7 +21,7 @@ sudo apt install libglfw3-dev -y
 echo -e "\033[42;37mInstalling OpenGL libraries...\033[0m"
 sudo dpkg -i debs/libglfw3*deb; sudo apt install -f; sudo apt install libgl1-mesa-dri-lts-vivid -y
 #安装OpenNI2
-echo -e "\033[42;37mInstalling OpenNI2 ...\033[0m"
+echo -e "\033[42;37mInstalling OpenNI2...\033[0m"
 sudo apt install libopenni2-dev -y
 #编译libfreenect2
 echo -e "\033[42;37mCompiling libfreenect2...\033[0m"
@@ -31,8 +31,8 @@ cmake ..
 make
 sudo make install
 #建立别名，设置usb规则
-echo -e "\033[42;37mSetting up udev rules\033[0m"
+echo -e "\033[42;37mSetting up udev rules...\033[0m"
 cd ~/libfreenect2
 sudo cp platform/linux/udev/90-kinect2.rules /etc/udev/rules.d/
 #安装完毕，可以进行驱动测试。运行~/libfreenect2/build/bin/Protonect.
-echo -e "\033[42;37mNow you can test your kinect2 device. Run the program ~/libfreenect2/build/bin/Protonect. \033[0m"
+echo -e "\033[42;37mNow you can test your kinect2 device. Run the program ~/libfreenect2/build/bin/Protonect.\033[0m"

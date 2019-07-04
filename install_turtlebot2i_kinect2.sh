@@ -31,11 +31,24 @@ cd ~/turtlebot2i/
 source devel/setup.sh
 rosrun kobuki_ftdi create_udev_rules
 cd ~/turtlebot2i/src/Turtlebot2i_KinectV2_SR300/turtlebot2i_misc
-echo -e "\033[42;37mPlease modify the serial numbers in 99-turtlebot2i.rules manually.\033[0m"
-udevadm info -a -n /dev/ttyUSB0 | grep '{serial}' | head -n1
-udevadm info -a -n /dev/ttyUSB1 | grep '{serial}' | head -n1
-echo -e "\033[42;37mReplace the ******** with serial numbers.\033[0m"
-gedit 99-turtlebot2i.rules
+#echo -e "\033[42;37mPlease modify the serial numbers in 99-turtlebot2i.rules manually.\033[0m"
+#udevadm info -a -n /dev/ttyUSB0 | grep '{serial}' | head -n1
+#udevadm info -a -n /dev/ttyUSB1 | grep '{serial}' | head -n1
+#echo -e "\033[42;37mReplace the ******** with serial numbers.\033[0m"
+#gedit 99-turtlebot2i.rules
+serial_line1=$(udevadm info -a -n /dev/ttyUSB0 | grep '{serial}' | head -n1)
+serial_with_quotation1=${serial_line1##*=}
+serial_line2=$(udevadm info -a -n /dev/ttyUSB1 | grep '{serial}' | head -n1)
+serial_with_quotation2=${serial_line2##*=}
+if [  ${#serial_with_quotation1} -gt ${#serial_with_quotation2} ]
+then
+  sed -i "s/\"kobuki_\*\*\*\*\*\*\*\*\"/${serial_with_quotation1}/g" ./99-turtlebot2i.rules
+  sed -i "s/\"\*\*\*\*\*\*\*\*\"/${serial_with_quotation2}/g" ./99-turtlebot2i.rules
+  echo -e "kobuki serial: ${serial_with_quotation1}\narbotix serial: ${serial_with_quotation2}"
+else
+  sed -i "s/\"kobuki_\*\*\*\*\*\*\*\*\"/${serial_with_quotation2}/g" ./99-turtlebot2i.rules
+  sed -i "s/\"\*\*\*\*\*\*\*\*\"/${serial_with_quotation1}/g" ./99-turtlebot2i.rules
+  echo -e "kobuki serial: ${serial_with_quotation2}\narbotix serial: ${serial_with_quotation1}"
+fi
 sudo cp ./99-turtlebot2i.rules /etc/udev/rules.d/
 echo -e "\033[42;37mInstallation complete! \033[0m"
-
