@@ -47,7 +47,7 @@ cd ~
 git clone https://github.com/ncnynl/xf-ros.git
 cp -r ~/xf-ros/xfei_asr/ ~/catkin_ws/src/
 cd ~/catkin_ws/src/xfei_asr/
-sed -i "s/ubu/turtlebot/g" CMakeLists.txt
+sed -i "s/ubu/$USER/g" CMakeLists.txt
 cd ~/catkin_ws/
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make

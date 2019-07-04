@@ -22,12 +22,13 @@ rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 #设置udev规则
 echo -e "\033[42;37mSetting udev rules...\033[0m"
-sudo usermod -a -G dialout turtlebot
+sudo usermod -a -G dialout $USER
 cd ~
 touch 99-arbotix-m.rules
 echo -e "#Use this command:\n#	udevadm info -a -n /dev/ttyUSB0 | grep '{serial}' | head -n1\n#To determine serial numbers and fill in ******** for udev rules below:\nSUBSYSTEM==\"tty\", ATTRS{idVendor}==\"0403\", ATTRS{idProduct}==\"6001\", ATTRS{serial}==\"********\", SYMLINK+=\"arbotix\"" >> ~/99-arbotix-m.rules
 serial_line=$(udevadm info -a -n /dev/ttyUSB0 | grep '{serial}' | head -n1)
 serial_with_quotation=${serial_line##*=}
+echo -e "arbotix serial: ${serial_with_quotation}"
 sed -i "s/\"\*\*\*\*\*\*\*\*\"/${serial_with_quotation}/g" ~/99-arbotix-m.rules
 sudo mv ~/99-arbotix-m.rules /etc/udev/rules.d/
 echo -e "\033[42;37mInstallation complete! \033[0m"

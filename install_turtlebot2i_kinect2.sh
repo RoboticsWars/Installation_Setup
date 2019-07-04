@@ -24,7 +24,7 @@ echo -e "\033[42;37mSetting environment variables...\033[0m"
 echo -e "alias goros='source devel/setup.sh'\nexport TURTLEBOT_3D_SENSOR=kinect2\nexport TURTLEBOT_3D_SENSOR2=sr300\nexport TURTLEBOT_BATTERY=None\nexport TURTLEBOT_STACKS=interbotix\nexport TURTLEBOT_ARM=pincher" >> ~/.bashrc
 source ~/.bashrc
 rospack profile
-sudo usermod -a -G dialout turtlebot
+sudo usermod -a -G dialout $USER
 #设置udev规则，需要手动设置kobuki和arbotix的序列号
 echo -e "\033[42;37mSetting udev rules...\033[0m"
 cd ~/turtlebot2i/
