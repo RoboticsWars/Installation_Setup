@@ -31,4 +31,12 @@ serial_with_quotation=${serial_line##*=}
 echo -e "arbotix serial: ${serial_with_quotation}"
 sed -i "s/\"\*\*\*\*\*\*\*\*\"/${serial_with_quotation}/g" ~/99-arbotix-m.rules
 sudo mv ~/99-arbotix-m.rules /etc/udev/rules.d/
+echo "Restarting udev"
+sudo service udev reload
+sudo service udev restart
+echo "udev started"
+#修改pincher_arm.yaml配置文件
+echo -e "\033[42;37mModifying pincher_arm.yaml...\033[0m"
+cd ~/turtlebot_arm_ws/src/turtlebot_arm/turtlebot_arm_bringup/config/
+sed -i "s/ttyUSB0/arbotix/g" pincher_arm.yaml
 echo -e "\033[42;37mInstallation complete! \033[0m"
