@@ -5,6 +5,7 @@
 * install_kinect2_nvidia.sh 安装kinect2的驱动（Nvidia jetson开发板）
 * install_kinect2_ros.sh 安装kinect2的ROS功能包（先需要安装kinect2驱动）
 * inatall_astra.sh 安装astra的驱动和ROS功能包
+* inatall_astra_driver.sh 安装astra的驱动（如果前一个脚本执行后没能成功安装astra驱动需要运行此脚本）
 * install_turtlebot2i_kinect2.sh 安装turtlebot2i配kinect2的ROS功能包，不包括kinect2的安装
 * install_turtlebot2i_astra.sh 安装turtlebot2i配astra的ROS功能包，不包括astra的安装
 * setup_kinect2_with_turtlebot2.sh 设置kinect2与turtlebot2关联的文件（先需要安装kinect2的ROS功能包）

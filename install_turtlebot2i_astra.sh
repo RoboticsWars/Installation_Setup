@@ -24,13 +24,12 @@ rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 echo -e "\033[42;37mSetting environment variables...\033[0m"
 echo -e "alias goros='source devel/setup.sh'\nexport TURTLEBOT_3D_SENSOR=astra\nexport TURTLEBOT_3D_SENSOR2=sr300\nexport TURTLEBOT_BATTERY=None\nexport TURTLEBOT_STACKS=interbotix\nexport TURTLEBOT_ARM=pincher" >> ~/.bashrc
-source ~/.bashrc
-rospack profile
 #设置udev规则
 sudo usermod -a -G dialout $USER
 echo -e "\033[42;37mSetting udev rules...\033[0m"
 cd ~/turtlebot2i/
 source devel/setup.sh
+rospack profile
 rosrun kobuki_ftdi create_udev_rules
 cd ~/turtlebot2i/src/turtlebot2i_misc
 #echo -e "\033[42;37mPlease modify the serial numbers in 99-turtlebot2i.rules manually.\033[0m"
