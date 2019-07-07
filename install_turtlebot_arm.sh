@@ -1,8 +1,8 @@
 #!/bin/bash -e
 #安装arbotix_ros和turtlebot_arm功能包
 echo -e "\033[42;37mInstallating arbotix_ros and turtlebot_arm...\033[0m"
-sudo apt install ros-kinetic-moveit-* -y
-source /opt/ros/kinetic/setup.bash
+sudo apt install ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-moveit-plugins ros-$ROS_DISTRO-moveit-planners
+source /opt/ros/$ROS_DISTRO/setup.bash
 cd ~/
 if [ ! -d "turtlebot_arm_ws/src" ]; then
   echo -e "\033[42;37mCreating work space for turtlebot_arm...\033[0m"
@@ -39,4 +39,8 @@ echo "udev started"
 echo -e "\033[42;37mModifying pincher_arm.yaml...\033[0m"
 cd ~/turtlebot_arm_ws/src/turtlebot_arm/turtlebot_arm_bringup/config/
 sed -i "s/ttyUSB0/arbotix/g" pincher_arm.yaml
+#添加pincher为环境变量
+echo -e "\033[42;37mAdding pincher as an environment variable...\033[0m"
+cd ~
+echo "export TURTLEBOT_ARM1=pincher" >> ~/.bashrc
 echo -e "\033[42;37mInstallation complete! \033[0m"
