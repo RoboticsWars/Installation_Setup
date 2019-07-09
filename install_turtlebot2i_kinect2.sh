@@ -8,7 +8,8 @@ sudo apt install ros-kinetic-librealsense ros-kinetic-realsense-camera -y
 echo -e "\033[42;37mInstalling rtabmap_ros packages...\033[0m"
 sudo apt install ros-kinetic-rtabmap-ros -y
 #创建turtlebot2i工作空间
-if [ ! -d "~/turtlebot2i/src" ]; then
+cd ~/
+if [ ! -d "turtlebot2i/src" ]; then
   echo -e "\033[42;37mCreating work space for turtlebot2i...\033[0m"
   mkdir -p ~/turtlebot2i/src
   echo "source ~/turtlebot2i/devel/setup.bash --extend" >> ~/.bashrc

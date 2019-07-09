@@ -14,7 +14,8 @@ sudo update-alternatives --install /usr/bin/java java /usr/lib/java/jre1.8.0_211
 java -version
 #安装ArduinoIDE 1.0.6
 echo -e "\033[42;37mInstalling ArduinoIDE 1.0.6 ...\033[0m"
-if [ ! -d "~/tools" ]; then
+cd ~/
+if [ ! -d "tools" ]; then
   mkdir ~/tools
 fi
 cd ~/tools/
@@ -25,7 +26,8 @@ echo -e "\033[42;37mDownloading arbotix files...\033[0m"
 git clone https://github.com/Interbotix/arbotix.git
 cp -r arbotix/hardware/. arduino-1.0.6/hardware
 cp -r arbotix/libraries/. arduino-1.0.6/libraries
-if [ ! -d "~/Arduino" ]; then
+cd ~/
+if [ ! -d "Arduino" ]; then
   mkdir ~/Arduino
 fi
 cp -r arbotix/Arb* ~/Arduino

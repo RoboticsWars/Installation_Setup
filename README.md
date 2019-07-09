@@ -13,3 +13,4 @@
 * install_rchomeedu.sh 安装robocup@home education相关软件
 * install_arduinoide_and_dynamanager.sh 安装arduinoIDE和DynaManager（用来烧录arbotix-M的固件和设置Dynamixel舵机的ID）
 * install_turtlebot_arm.sh 安装arbotix_ros和turtlebot_arm功能包
+* setup_kobuki_xs_with_kinect2.sh 设置kobuki_xs配kinect2的参数

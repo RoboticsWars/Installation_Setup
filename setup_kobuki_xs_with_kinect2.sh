@@ -2,7 +2,7 @@
 #下载kinect2相关的配置文件
 source /opt/ros/kinetic/setup.bash
 cd ~/
-if [ ! -d "~/Turtlebot2_Kinect2" ]; then
+if [ ! -d "Turtlebot2_Kinect2" ]; then
   echo -e "\033[42;37mDowloading https://github.com/RoboticsWars/Turtlebot2_Kinect2.git ...\033[0m"
   git clone https://github.com/RoboticsWars/Turtlebot2_Kinect2.git
 fi
@@ -11,7 +11,8 @@ echo -e "\033[42;37mCopying files to related directories...\033[0m"
 sudo cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_description/. /opt/ros/kinetic/share/turtlebot_description/
 sudo cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_navigation/launch/. /opt/ros/kinetic/share/turtlebot_navigation/launch/
 cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/iai_kinect2/kinect2_bridge/launch/kinect2_laser.launch ~/catkin_ws/src/iai_kinect2/kinect2_bridge/launch/
-if [ ! -d "~/catkin_ws" ]; then
+cd ~/
+if [ ! -d "catkin_ws" ]; then
   echo -e "\033[42;37mCreating work space named catkin_ws...\033[0m"
   mkdir -p ~/catkin_ws/src
   echo "source ~/catkin_ws/devel/setup.bash --extend" >> ~/.bashrc
