@@ -36,4 +36,13 @@ cd ~/kicc100t_ros_driver
 make cmake
 cd ~/kicc100t_ros_driver/out/x86_32/debug/build
 make
+#配置udev规则
+cd ~/
+touch 99-kobuki_x.rules
+echo -e "SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"ea60\", SYMLINK+=\"kobuki\"" >> ~/99-kobuki_x.rules
+sudo mv ~/99-kobuki_x.rules /etc/udev/rules.d/
+echo "Restarting udev"
+sudo service udev reload
+sudo service udev restart
+echo "udev started"
 echo -e "\033[42;37mSetup complete! \033[0m"

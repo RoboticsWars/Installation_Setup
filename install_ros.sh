@@ -24,6 +24,9 @@ source ~/.bashrc
 #安装编译功能包所需的依赖项
 echo -e "\033[42;37mDependencies for building packages\033[0m"
 sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential -y
+#把当前用户加入dialout用户组
+echo -e "\033[42;37mAdd current user to dialout group.\033[0m"
+sudo usermod -a -G dialout $USER
 #安装turtlebot官方功能包
 echo -e "\033[42;37mInstalling turtlebot packages...\033[0m"
 sudo apt install ros-kinetic-turtlebot ros-kinetic-turtlebot-apps ros-kinetic-turtlebot-rviz-launchers -y
