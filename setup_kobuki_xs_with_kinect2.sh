@@ -11,6 +11,9 @@ echo -e "\033[42;37mCopying files to related directories...\033[0m"
 sudo cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_description/. /opt/ros/kinetic/share/turtlebot_description/
 sudo cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_navigation/launch/. /opt/ros/kinetic/share/turtlebot_navigation/launch/
 cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/iai_kinect2/kinect2_bridge/launch/kinect2_laser.launch ~/catkin_ws/src/iai_kinect2/kinect2_bridge/launch/
+sudo cp /opt/ros/kinetic/share/turtlebot_navigation/param/costmap_common_params.yaml /opt/ros/kinetic/share/turtlebot_navigation/param/costmap_common_params.yaml.backup
+sudo cp /opt/ros/kinetic/share/turtlebot_navigation/param/dwa_local_planner_params.yaml /opt/ros/kinetic/share/turtlebot_navigation/param/dwa_local_planner_params.yaml.backup
+sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_navigation/param/* /opt/ros/kinetic/share/turtlebot_navigation/param/
 cd ~/
 if [ ! -d "catkin_ws" ]; then
   echo -e "\033[42;37mCreating work space named catkin_ws...\033[0m"
