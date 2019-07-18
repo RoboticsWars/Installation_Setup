@@ -18,7 +18,7 @@ cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/iai_kinect2/kinect2_bridge/launch/. ~/cat
 sudo cp /opt/ros/kinetic/share/turtlebot_navigation/param/costmap_common_params.yaml /opt/ros/kinetic/share/turtlebot_navigation/param/costmap_common_params.yaml.backup
 sudo cp /opt/ros/kinetic/share/turtlebot_navigation/param/dwa_local_planner_params.yaml /opt/ros/kinetic/share/turtlebot_navigation/param/dwa_local_planner_params.yaml.backup
 sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_navigation/param/* /opt/ros/kinetic/share/turtlebot_navigation/param/
-sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_bringup/launch/* /opt/ros/kinetic/share/turtlebot_bringup/launch/
+#sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_bringup/launch/* /opt/ros/kinetic/share/turtlebot_bringup/launch/
 sudo cp /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz/navigation.rviz /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz/navigation.rviz.backup
 sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_rviz_launchers/rviz/navigation.rviz /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz
 cd ~/
@@ -27,7 +27,15 @@ if [ ! -d "catkin_ws" ]; then
   mkdir -p ~/catkin_ws/src
   echo "source ~/catkin_ws/devel/setup.bash --extend" >> ~/.bashrc
 fi
-cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/kobuki_x_description/ ~/catkin_ws/src
+if [ ! -d "catkin_ws/src/kobuki_x_project" ]; then
+  echo -e "\033[42;37mDowloading kobuki_x_project metapackage...\033[0m"
+  cd ~/catkin_ws/src/
+  git clone https://github.com/RoboticsWars/kobuki_x_project.git
+else
+  cd ~/catkin_ws/src/kobuki_x_project/
+  git pull
+fi
+#cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/kobuki_x_description/ ~/catkin_ws/src
 cd ~/catkin_ws
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
@@ -37,7 +45,10 @@ source ~/.bashrc
 #修改参数并编译
 echo -e "\033[42;37mSetting up parameters and compiling source code...\033[0m"
 cd ~/
-git clone -b kinetic https://github.com/rcwind/kicc100t_ros_driver.git
+if [ ! -d "kicc100t_ros_drive" ]; then
+  echo -e "\033[42;37mDowloading kicc100t_ros_driver...\033[0m"
+  git clone -b kinetic https://github.com/rcwind/kicc100t_ros_driver.git
+fi
 cd ~/kicc100t_ros_driver/src/kobuki_driver/src/driver
 sed -i "s/0.226/0.315/g" diff_drive.cpp
 sed -i "s/0.031/0.0625/g" diff_drive.cpp
