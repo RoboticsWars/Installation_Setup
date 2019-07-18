@@ -20,7 +20,7 @@ sudo cp /opt/ros/kinetic/share/turtlebot_navigation/param/dwa_local_planner_para
 sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_navigation/param/* /opt/ros/kinetic/share/turtlebot_navigation/param/
 sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_bringup/launch/* /opt/ros/kinetic/share/turtlebot_bringup/launch/
 sudo cp /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz/navigation.rviz /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz/navigation.rviz.backup
-sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot__rviz_launchers/rviz/navigation.rviz /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz
+sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_rviz_launchers/rviz/navigation.rviz /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz
 cd ~/
 if [ ! -d "catkin_ws" ]; then
   echo -e "\033[42;37mCreating work space named catkin_ws...\033[0m"
