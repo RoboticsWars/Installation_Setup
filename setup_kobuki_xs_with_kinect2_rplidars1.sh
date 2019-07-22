@@ -31,6 +31,8 @@ if [ ! -d "catkin_ws/src/kobuki_x_project" ]; then
   echo -e "\033[42;37mDowloading kobuki_x_project metapackage...\033[0m"
   cd ~/catkin_ws/src/
   git clone https://github.com/RoboticsWars/kobuki_x_project.git
+  echo -e "\033[42;37mDowloading rplidar_ros package...\033[0m"
+  git clone https://github.com/Slamtec/rplidar_ros.git
 else
   cd ~/catkin_ws/src/kobuki_x_project/
   git pull
@@ -57,9 +59,6 @@ cd ~/kicc100t_ros_driver
 make cmake
 cd ~/kicc100t_ros_driver/out/x86_32/debug/build
 make
-#安装rplidar_ros功能包
-echo -e "\033[42;37mInstalling rplidar_ros...\033[0m"
-sudo apt install ros-$ROS_DISTRO-rplidar-ros -y
 #安装pointcloud_to_laserscan功能包
 echo -e "\033[42;37mInstalling pointcloud_to_laserscan...\033[0m"
 sudo apt install ros-$ROS_DISTRO-pointcloud-to-laserscan -y
