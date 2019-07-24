@@ -20,10 +20,20 @@ git clone https://github.com/turtlebot/turtlebot_arm.git
 cd ..
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
+cd ~/
+if [ ! -d "Turtlebot2_Kinect2" ]; then
+  echo -e "\033[42;37mDowloading https://github.com/RoboticsWars/Turtlebot2_Kinect2.git ...\033[0m"
+  git clone https://github.com/RoboticsWars/Turtlebot2_Kinect2.git
+else
+  cd Turtlebot2_Kinect2
+  git pull
+fi
+mkdir ~/turtlebot_arm_ws/src/turtlebot_arm/turtlebot_arm_moveit_demos/scripts/
+cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_arm/turtlebot_arm_moveit_demos/scripts/pick_and_place_pincher.py ~/turtlebot_arm_ws/src/turtlebot_arm/turtlebot_arm_moveit_demos/scripts/
 #设置udev规则
 echo -e "\033[42;37mSetting udev rules...\033[0m"
 sudo usermod -a -G dialout $USER
-cd ~
+cd ~/
 touch 99-arbotix-m.rules
 echo -e "#Use this command:\n#	udevadm info -a -n /dev/ttyUSB0 | grep '{serial}' | head -n1\n#To determine serial numbers and fill in ******** for udev rules below:\nSUBSYSTEM==\"tty\", ATTRS{idVendor}==\"0403\", ATTRS{idProduct}==\"6001\", ATTRS{serial}==\"********\", SYMLINK+=\"arbotix\"" >> ~/99-arbotix-m.rules
 serial_line=$(udevadm info -a -n /dev/ttyUSB0 | grep '{serial}' | head -n1)

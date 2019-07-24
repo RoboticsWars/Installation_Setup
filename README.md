@@ -15,3 +15,5 @@
 * install_turtlebot_arm.sh 安装arbotix_ros和turtlebot_arm功能包
 * setup_kobuki_xs_with_kinect2.sh 设置kobuki_xs配kinect2的参数
 * kobuki_xs_auto_start.sh 自启动脚本
+* setup_kobuki_xs_with_kinect2_rplidara2.sh 设置kobuki_xs配kinect2和rplidar a2的参数
+* setup_kobuki_xs_with_kinect2_rplidars1.sh 设置kobuki_xs配kinect2和rplidar s1的参数
