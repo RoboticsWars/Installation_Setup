@@ -1,5 +1,5 @@
 #!/bin/bash -e
-#安装java运行时环境
+#安装java运行时环境(为8u211版本，如官方有更新请自行更改链接)
 echo -e "\033[42;37mInstalling jre...\033[0m"
 cd ~/Downloads/
 wget -O jre-8u211-linux-x64.tar.gz https://javadl.oracle.com/webapps/download/AutoDL?BundleId=238719_478a62b7d4e34b78b671c754eaaf38ab

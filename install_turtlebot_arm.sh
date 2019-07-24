@@ -1,7 +1,7 @@
 #!/bin/bash -e
 #安装arbotix_ros和turtlebot_arm功能包
 echo -e "\033[42;37mInstallating arbotix_ros and turtlebot_arm...\033[0m"
-sudo apt install ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-moveit-plugins ros-$ROS_DISTRO-moveit-planners
+sudo apt install ros-$ROS_DISTRO-moveit ros-$ROS_DISTRO-moveit-plugins ros-$ROS_DISTRO-moveit-planners -y
 source /opt/ros/$ROS_DISTRO/setup.bash
 cd ~/
 if [ ! -d "turtlebot_arm_ws/src" ]; then
