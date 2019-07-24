@@ -69,6 +69,9 @@ sudo apt install ros-$ROS_DISTRO-laser-filters -y
 #安装robot_pose_publisher功能包
 echo -e "\033[42;37mInstalling robot_pose_publisher...\033[0m"
 sudo apt install ros-$ROS_DISTRO-robot-pose-publisher -y
+#安装rosbridge_suite
+echo -e "\033[42;37mInstalling rosbridge_suite...\033[0m"
+apt install ros-kinetic-rosbridge-suite
 #配置udev规则
 echo -e "\033[42;37mCreating rules file for kobuki_x and rplidar...\033[0m"
 cd ~/
