@@ -19,4 +19,7 @@ rospack profile
 #设置udev规则
 echo -e "\033[42;37mSetting udev rules...\033[0m"
 rosrun astra_camera create_udev_rules
+#设置环境变量
+echo -e "\033[42;37mSetting environment variable. \033[0m"
+echo "export TURTLEBOT_3D_SENSOR=astra" >> ~/.bashrc
 echo -e "\033[42;37mInstallation complete! \033[0m"
