@@ -54,7 +54,7 @@ else
 fi
 #复制文件
 echo -e "\033[42;37mCopying files to related directories...\033[0m"
-sudo cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot2i_description/. ~/turtlebot2i/src/Turtlebot2i_KinectV2_SR300/turtlebot2i_description/
+cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot2i_description/. ~/turtlebot2i/src/Turtlebot2i_KinectV2_SR300/turtlebot2i_description/
 sudo cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_description/. /opt/ros/kinetic/share/turtlebot_description/
 sudo cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_navigation/launch/. /opt/ros/kinetic/share/turtlebot_navigation/launch/
 cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/iai_kinect2/kinect2_bridge/launch/. ~/catkin_ws/src/iai_kinect2/kinect2_bridge/launch/
