@@ -1,7 +1,7 @@
 #!/bin/bash -e
 source /opt/ros/kinetic/setup.bash
 source /home/turtlebot/catkin_ws/devel/setup.bash
-#source /home/turtlebot/turtlebot2i/devel/setup.bash
+#source /home/turtlebot/turtlebot2i/devel/setup.bash --extend
 #tb2i版需要加上这句
 export TURTLEBOT_3D_SENSOR=kinect2_rplidar_a2
 export TURTLEBOT_BATTERY=None
