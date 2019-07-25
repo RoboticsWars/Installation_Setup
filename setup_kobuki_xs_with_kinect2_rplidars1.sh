@@ -75,9 +75,9 @@ sudo apt install ros-kinetic-rosbridge-suite -y
 echo -e "\033[42;37mCreating rules file for kobuki_x and rplidar...\033[0m"
 cd ~/
 touch 99-kobuki_x.rules
-echo -e "SUBSYSTEM==\"tty\", KERNELS==\"*-1.4\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"ea60\", SYMLINK+=\"kobuki\"" >> ~/99-kobuki_x.rules
+echo -e "SUBSYSTEM==\"tty\", KERNELS==\"*-*.4\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"ea60\", SYMLINK+=\"kobuki\"" >> ~/99-kobuki_x.rules
 touch 99-rplidars1.rules
-echo -e "SUBSYSTEM==\"tty\", KERNELS==\"*-1.3\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"ea60\", SYMLINK+=\"rplidars1\"" >> ~/99-rplidars1.rules
+echo -e "SUBSYSTEM==\"tty\", KERNELS==\"*-*.3\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"ea60\", SYMLINK+=\"rplidars1\"" >> ~/99-rplidars1.rules
 sudo mv ~/*.rules /etc/udev/rules.d/
 sudo usermod -a -G dialout $USER
 echo "Restarting udev"
