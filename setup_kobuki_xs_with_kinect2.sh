@@ -5,6 +5,9 @@ cd ~/
 if [ ! -d "Turtlebot2_Kinect2" ]; then
   echo -e "\033[42;37mDowloading https://github.com/RoboticsWars/Turtlebot2_Kinect2.git ...\033[0m"
   git clone https://github.com/RoboticsWars/Turtlebot2_Kinect2.git
+else
+  cd Turtlebot2_Kinect2
+  git pull
 fi
 #复制文件
 echo -e "\033[42;37mCopying files to related directories...\033[0m"
