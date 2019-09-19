@@ -1,3 +1,22 @@
+#!/bin/bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+
+
+echo "Please enter your exchange number:"
+read exchangenumber
+
+
+export PYTHONIOENCODING=utf8
+#exchangenumber_error;
+exchangenumber_error=`curl -s "https://www.imyune.com/circle/index.php?act=exchange&op=index&form_submit=ok&vr_code=$exchangenumber" | \python -c "import sys, json; print json.load(sys.stdin)['error']"`
+if [ "${exchangenumber_error}" != "" ]; then
+    echo $exchangenumber_error
+    exit 1
+fi
+
+exchangenumber_vr_indate=`curl -s "https://www.imyune.com/circle/index.php?act=exchange&op=index&form_submit=ok&vr_code=$exchangenumber" | \python -c "import sys, json; print json.load(sys.stdin)['data']['vr_indate']"`
+echo $exchangenumber_vr_indate
 #!/bin/bash -e
 echo -e "\033[42;37mSetting up your sources.list...\033[0m"
 #设置ROS源为清华源
