@@ -63,6 +63,21 @@ else
   cd ~/catkin_ws/src/PACLidarRosDriver/
   git pull
 fi
+#修改参数并编译
+echo -e "\033[42;37mSetting up parameters and compiling source code...\033[0m"
+cd ~/
+if [ ! -d "kicc100t_ros_drive" ]; then
+  echo -e "\033[42;37mDowloading kicc100t_ros_driver...\033[0m"
+  git clone -b kinetic https://github.com/rcwind/kicc100t_ros_driver.git
+fi
+cd ~/kicc100t_ros_driver/src/kobuki_driver/src/driver
+sed -i "s/0.226/0.315/g" diff_drive.cpp
+sed -i "s/0.031/0.0625/g" diff_drive.cpp
+sed -i "s/0.004197185/0.001570796/g" diff_drive.cpp
+cd ~/kicc100t_ros_driver
+make cmake
+cd ~/kicc100t_ros_driver/out/x86_32/debug/build
+make
 #安装pointcloud_to_laserscan功能包
 echo -e "\033[42;37mInstalling pointcloud_to_laserscan...\033[0m"
 sudo apt install ros-$ROS_DISTRO-pointcloud-to-laserscan -y
