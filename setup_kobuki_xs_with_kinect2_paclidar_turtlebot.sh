@@ -48,7 +48,7 @@ cd ~/catkin_ws
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make
 rospack profile
-echo -e "export TURTLEBOT_3D_SENSOR=kinect2_rplidar_a2\nexport TURTLEBOT_BATTERY=None\nexport TURTLEBOT_STACKS=circle_board" >> ~/.bashrc
+echo -e "export TURTLEBOT_3D_SENSOR=kinect2_paclidar\nexport TURTLEBOT_BATTERY=None\nexport TURTLEBOT_STACKS=circle_board" >> ~/.bashrc
 source ~/.bashrc
 #修改参数并编译
 echo -e "\033[42;37mSetting up parameters and compiling source code...\033[0m"
