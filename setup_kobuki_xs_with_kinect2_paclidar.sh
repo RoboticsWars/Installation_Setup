@@ -62,8 +62,6 @@ catkin_make
 rospack profile
 echo -e "export TURTLEBOT_3D_SENSOR=kinect2_paclidar\nexport TURTLEBOT_BATTERY=None\nexport TURTLEBOT_STACKS=circle_board" >> ~/.bashrc
 source ~/.bashrc
-#修改参数并编译
-echo -e "\033[42;37mSetting up parameters and compiling source code...\033[0m"
 
 #安装PACLidarRosDriver功能包
 echo -e "\033[42;37mInstalling PACLidarRosDriver...\033[0m"

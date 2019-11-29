@@ -27,6 +27,8 @@ if [ ! -d "catkin_ws" ]; then
   mkdir -p ~/catkin_ws/src
   echo "source ~/catkin_ws/devel/setup.bash --extend" >> ~/.bashrc
 fi
+
+
 if [ ! -d "catkin_ws/src/kobuki_x_project" ]; then
   echo -e "\033[42;37mDowloading kobuki_x_project metapackage...\033[0m"
   cd ~/catkin_ws/src/
@@ -35,6 +37,16 @@ else
   cd ~/catkin_ws/src/kobuki_x_project/
   git pull
 fi
+
+if [ ! -d "catkin_ws/src/slam_gmapping" ]; then
+  echo -e "\033[42;37mDowloading slam_gmapping metapackage...\033[0m"
+  cd ~/catkin_ws/src/
+  git clone https://github.com/ros-perception/slam_gmapping.git
+else
+  cd ~/catkin_ws/src/slam_gmapping/
+  git pull
+fi
+
 if [ ! -d "catkin_ws/src/openslam_gmapping" ]; then
   echo -e "\033[42;37mDowloading openslam_gmapping metapackage...\033[0m"
   cd ~/catkin_ws/src/
@@ -50,8 +62,22 @@ catkin_make
 rospack profile
 echo -e "export TURTLEBOT_3D_SENSOR=kinect2_paclidar\nexport TURTLEBOT_BATTERY=None\nexport TURTLEBOT_STACKS=circle_board" >> ~/.bashrc
 source ~/.bashrc
+
 #修改参数并编译
 echo -e "\033[42;37mSetting up parameters and compiling source code...\033[0m"
+cd ~/
+if [ ! -d "kicc100t_ros_drive" ]; then
+  echo -e "\033[42;37mDowloading kicc100t_ros_driver...\033[0m"
+  git clone -b kinetic https://github.com/rcwind/kicc100t_ros_driver.git
+fi
+cd ~/kicc100t_ros_driver/src/kobuki_driver/src/driver
+sed -i "s/0.226/0.315/g" diff_drive.cpp
+sed -i "s/0.031/0.0625/g" diff_drive.cpp
+sed -i "s/0.004197185/0.001570796/g" diff_drive.cpp
+cd ~/kicc100t_ros_driver
+make cmake
+cd ~/kicc100t_ros_driver/out/x86_32/debug/build
+make
 
 #安装PACLidarRosDriver功能包
 echo -e "\033[42;37mInstalling PACLidarRosDriver...\033[0m"
