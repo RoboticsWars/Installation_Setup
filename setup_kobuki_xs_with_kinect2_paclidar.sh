@@ -20,13 +20,15 @@ sudo cp /opt/ros/kinetic/share/turtlebot_navigation/param/dwa_local_planner_para
 sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_navigation/param/* /opt/ros/kinetic/share/turtlebot_navigation/param/
 #sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_bringup/launch/* /opt/ros/kinetic/share/turtlebot_bringup/launch/
 sudo cp /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz/navigation.rviz /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz/navigation.rviz.backup
-sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_rviz_launchers/rviz/navigation.rviz /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz
+sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_rviz_launchers/rviz/navigation.rviz /opt/ros/kinetic/share/turtlebot_rviz_launchers/navigation.rviz
 cd ~/
 if [ ! -d "catkin_ws" ]; then
   echo -e "\033[42;37mCreating work space named catkin_ws...\033[0m"
   mkdir -p ~/catkin_ws/src
   echo "source ~/catkin_ws/devel/setup.bash --extend" >> ~/.bashrc
 fi
+
+
 if [ ! -d "catkin_ws/src/kobuki_x_project" ]; then
   echo -e "\033[42;37mDowloading kobuki_x_project metapackage...\033[0m"
   cd ~/catkin_ws/src/
@@ -35,6 +37,16 @@ else
   cd ~/catkin_ws/src/kobuki_x_project/
   git pull
 fi
+
+if [ ! -d "catkin_ws/src/slam_gmapping" ]; then
+  echo -e "\033[42;37mDowloading slam_gmapping metapackage...\033[0m"
+  cd ~/catkin_ws/src/
+  git clone https://github.com/ros-perception/slam_gmapping.git
+else
+  cd ~/catkin_ws/src/slam_gmapping/
+  git pull
+fi
+
 if [ ! -d "catkin_ws/src/openslam_gmapping" ]; then
   echo -e "\033[42;37mDowloading openslam_gmapping metapackage...\033[0m"
   cd ~/catkin_ws/src/
@@ -50,8 +62,6 @@ catkin_make
 rospack profile
 echo -e "export TURTLEBOT_3D_SENSOR=kinect2_paclidar\nexport TURTLEBOT_BATTERY=None\nexport TURTLEBOT_STACKS=circle_board" >> ~/.bashrc
 source ~/.bashrc
-#修改参数并编译
-echo -e "\033[42;37mSetting up parameters and compiling source code...\033[0m"
 
 #安装PACLidarRosDriver功能包
 echo -e "\033[42;37mInstalling PACLidarRosDriver...\033[0m"
