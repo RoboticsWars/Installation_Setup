@@ -22,13 +22,14 @@ sed -i '68c       <param name="product" value="0x0502"/>' astrapro.launch
 
 echo -e "\033[42;37mConfigure dirver launch file for Letv_Xtion...\033[0m"
 #修改驱动launch文件
-roscd turtlebot_bringup/launch/includes/3dsensor/
+cd /opt/ros/kinetic/share/turtlebot_bringup/launch/includes/3dsensor/
 sudo sed -i '23c  <include file="$(find astra_camera)/launch/astrapro.launch">' astra.launch.xml 
 
 echo -e "\033[42;37mCreate rules file for Letv_Xtion...\033[0m"
 #创建rules文件，给摄像头端口加硬链接
 cd ~/catkin_ws/src/ros_astra_camera
-./scripts/create_udev_rules
+sudo ./scripts/create_udev_rules
+sudo usermod -a -G video $USER
 
 echo -e "\033[42;37mCompile the source code...\033[0m"
 #编译
