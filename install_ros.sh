@@ -49,4 +49,6 @@ sudo usermod -a -G dialout $USER
 #安装turtlebot官方功能包
 echo -e "\033[42;37mInstalling turtlebot packages...\033[0m"
 sudo apt install ros-kinetic-turtlebot ros-kinetic-turtlebot-apps ros-kinetic-turtlebot-rviz-launchers -y
+#安装hector_slam
+sudo apt-get install ros-kinetic-hector-slam
 echo -e "\033[42;37mROS for turtlebot is installed!\033[0m"
