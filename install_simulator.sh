@@ -6,9 +6,8 @@ sudo apt-get install ros-kinetic-turtlebot ros-kinetic-turtlebot-*
 echo -e "\033[42;37mSetting world file...\033[0m"
 echo "TURTLEBOT_GAZEBO_WORLD_FILE=\"/opt/ros/kinetic/share/turtlebot_gazebo/worlds/playground.world\"" >> ~/.bashrc
 echo -e "\033[42;37mDownloading robot models...\033[0m"
-cd ~/.gazebo/
-mkdir  models
-cd models/
+mkdir -p ~/.gazebo/models
+cd ~/.gazebo/models/
 wget http://file.ncnynl.com/ros/gazebo_models.txt
 wget -i gazebo_models.txt
 ls model.tar.g* | xargs -n1 tar xzvf
