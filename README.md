@@ -1,6 +1,7 @@
 # Installation_Setup
 
 ------------安装ROS和配置驱动用的脚本文件------------------
+
 * install_ros.sh 安装ROS Kinetic和turtlebot2相关的功能包（其他脚本文件均不包括turtlebot2功能包的安装）
 * install_kinect2_intel.sh 安装kinect2的驱动（Intel显卡的电脑）
 * install_kinect2_nvidia.sh 安装kinect2的驱动（Nvidia jetson开发板）
@@ -23,11 +24,12 @@
 * install_kobuki_xs_tb2i_with_kinect2.sh 安装tb2i版kobuki_xs
 
 ----------------------环境传感器设置---------------------
+
 * 根据自己的传感器将环境变量[TURTLEBOT_3D_SENSOR]修改为对应的传感器类型，并将其添加至～/.bashrc文件中：
-    传感器为kinect2+pac激光雷达：          export TURTLEBOT_3D_SENSOR=kinect2_paclidar
-    传感器为kinect2+思岚激光雷达A2：        export TURTLEBOT_3D_SENSOR=kinect2_rplidar_a2
-    传感器为pac激光雷达：                  export TURTLEBOT_3D_SENSOR=paclidar
-    传感器为思岚激光雷达A2：                export TURTLEBOT_3D_SENSOR=rplidar_a2
-    传感器为LetvXtion或奥比中光RGB-D摄像头： export TURTLEBOT_3D_SENSOR=astra
+* 传感器为kinect2+pac激光雷达：          export TURTLEBOT_3D_SENSOR=kinect2_paclidar
+* 为kinect2+思岚激光雷达A2：        export TURTLEBOT_3D_SENSOR=kinect2_rplidar_a2
+* 传感器为pac激光雷达：                  export TURTLEBOT_3D_SENSOR=paclidar
+* 传感器为思岚激光雷达A2：                export TURTLEBOT_3D_SENSOR=rplidar_a2
+* 传感器为LetvXtion或奥比中光RGB-D摄像头： export TURTLEBOT_3D_SENSOR=astra
 * 例如，当前传感器类型为kinct2+pac雷达，则将这条语句 export TURTLEBOT_3D_SENSOR=kinect2_paclidar 添加至[～/.bashrc]文件的末尾。
 * 注意：如果该文件中已有该语句，则将先前的语句注释掉(在语句前加 # 即可)
