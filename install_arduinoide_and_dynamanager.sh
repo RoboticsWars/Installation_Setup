@@ -18,6 +18,9 @@ cd ~/
 if [ ! -d "tools" ]; then
   mkdir ~/tools
 fi
+if [ ! -d "Arduino" ]; then
+  mkdir ~/Arduino
+fi
 cd ~/tools/
 wget http://file.ncnynl.com/ros/arduino-1.0.6-linux64.tgz
 tar -zxvf arduino-1.0.6-linux64.tgz
@@ -26,10 +29,6 @@ echo -e "\033[42;37mDownloading arbotix files...\033[0m"
 git clone https://github.com/Interbotix/arbotix.git
 cp -r arbotix/hardware/. arduino-1.0.6/hardware
 cp -r arbotix/libraries/. arduino-1.0.6/libraries
-cd ~/
-if [ ! -d "Arduino" ]; then
-  mkdir ~/Arduino
-fi
 cp -r arbotix/Arb* ~/Arduino
 #下载DynaManager
 echo -e "\033[42;37mDownloading DynaManager...\033[0m"
