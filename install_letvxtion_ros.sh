@@ -43,5 +43,12 @@ rospack profile
 echo -e "\033[42;37mConfigure the TURTLEBOT_3D_SENSOR...\033[0m"
 echo "export TURTLEBOT_3D_SENSOR=astra" >> ~/.bashrc
 
+#Copy libraries
+if [  -d "/opt/ros/kinetic/lib/aarch64-linux-gnu" ]; then
+  echo -e "\033[42;37mCopy libraries\033[0m"
+  sudo cp /opt/ros/kinetic/lib/aarch64-linux-gnu/libopencv_* ../
+fi
+
+
 #安装结束
 echo -e "\033[42;37mLetv_Xtion driver installation is done...\033[0m"

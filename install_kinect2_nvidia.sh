@@ -34,5 +34,7 @@ sudo make install
 echo -e "\033[42;37mSetting up udev rules...\033[0m"
 cd ~/libfreenect2
 sudo cp platform/linux/udev/90-kinect2.rules /etc/udev/rules.d/
+#Copy libraries
+sudo cp /opt/ros/kinetic/lib/aarch64-linux-gnu/libopencv_* ../
 #安装完毕，可以进行驱动测试。运行~/libfreenect2/build/bin/Protonect.
 echo -e "\033[42;37mNow you can test your kinect2 device. Run the program ~/libfreenect2/build/bin/Protonect.\033[0m"
