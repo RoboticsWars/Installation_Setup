@@ -65,7 +65,7 @@ cd ~/
 touch 99-kobuki_x.rules
 echo -e "SUBSYSTEM==\"tty\", KERNELS==\"*-*.4\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"ea60\", SYMLINK+=\"kobuki\"" >> ~/99-kobuki_x.rules
 touch 99-rplidara2.rules
-echo -e "SUBSYSTEM==\"tty\", KERNELS==\"*-*.3\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"ea60\", SYMLINK+=\"rplidara2\"" >> ~/99-rplidara2.rules
+echo -e "KERNEL==\"ttyUSB*\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"ea60\", MODE:=\"0666\", GROUP:=\"dialout\",  SYMLINK+=\"rplidara2\"" >> ~/99-rplidara2.rules
 sudo mv ~/*.rules /etc/udev/rules.d/
 sudo usermod -a -G dialout $USER
 echo "Restarting udev"
