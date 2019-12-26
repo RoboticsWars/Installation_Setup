@@ -55,13 +55,6 @@ else
   cd ~/catkin_ws/src/openslam_gmapping/
   git pull
 fi
-#cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/kobuki_x_description/ ~/catkin_ws/src
-cd ~/catkin_ws
-rosdep install --from-paths src --ignore-src -r -y
-catkin_make
-rospack profile
-echo -e "export TURTLEBOT_3D_SENSOR=kinect2_paclidar\nexport TURTLEBOT_BATTERY=None\nexport TURTLEBOT_STACKS=circle_board" >> ~/.bashrc
-source ~/.bashrc
 
 #安装PACLidarRosDriver功能包
 echo -e "\033[42;37mInstalling PACLidarRosDriver...\033[0m"
@@ -73,6 +66,15 @@ else
   cd ~/catkin_ws/src/PACLidarRosDriver/
   git pull
 fi
+#cp -r ~/Turtlebot2_Kinect2/TB2+Kinect2/kobuki_x_description/ ~/catkin_ws/src
+cd ~/catkin_ws
+rosdep install --from-paths src --ignore-src -r -y
+catkin_make
+rospack profile
+echo -e "export TURTLEBOT_3D_SENSOR=kinect2_paclidar\nexport TURTLEBOT_BATTERY=None\nexport TURTLEBOT_STACKS=circle_board" >> ~/.bashrc
+source ~/.bashrc
+
+
 #修改参数并编译
 echo -e "\033[42;37mSetting up parameters and compiling source code...\033[0m"
 cd ~/
@@ -99,7 +101,7 @@ echo -e "\033[42;37mInstalling robot_pose_publisher...\033[0m"
 sudo apt install ros-$ROS_DISTRO-robot-pose-publisher -y
 #安装rosbridge_suite
 echo -e "\033[42;37mInstalling rosbridge_suite...\033[0m"
-sudo apt install ros-kinetic-rosbridge-suite -y
+#sudo apt install ros-kinetic-rosbridge-suite -y
 #配置udev规则
 echo -e "\033[42;37mCreating rules file for kobuki_x and rplidar...\033[0m"
 cd ~/

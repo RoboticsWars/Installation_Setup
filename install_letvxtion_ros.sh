@@ -28,7 +28,9 @@ sudo sed -i '23c  <include file="$(find astra_camera)/launch/astrapro.launch">' 
 echo -e "\033[42;37mCreate rules file for Letv_Xtion...\033[0m"
 #创建rules文件，给摄像头端口加硬链接
 cd ~/catkin_ws/src/ros_astra_camera
-sudo ./scripts/create_udev_rules
+sudo cp 56-orbbec-usb.rules /etc/udev/rules.d/
+sudo service udev reload
+sudo service udev restart
 sudo usermod -a -G video $USER
 
 echo -e "\033[42;37mCompile the source code...\033[0m"
@@ -39,7 +41,14 @@ rospack profile
 
 #配置环境变量
 echo -e "\033[42;37mConfigure the TURTLEBOT_3D_SENSOR...\033[0m"
-echo "export TURTLEBOT_3D_SENSOR=astra --extend" >> ~/.bashrc
+echo "export TURTLEBOT_3D_SENSOR=astra" >> ~/.bashrc
+
+#Copy libraries
+if [  -d "/opt/ros/kinetic/lib/aarch64-linux-gnu" ]; then
+  echo -e "\033[42;37mCopy libraries\033[0m"
+  sudo cp /opt/ros/kinetic/lib/aarch64-linux-gnu/libopencv_* ../
+fi
+
 
 #安装结束
 echo -e "\033[42;37mLetv_Xtion driver installation is done...\033[0m"
