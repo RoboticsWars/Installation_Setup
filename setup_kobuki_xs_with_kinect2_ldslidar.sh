@@ -22,8 +22,8 @@ sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_navigation/param/* /opt/ros/k
 sudo cp /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz/navigation.rviz /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz/navigation.rviz.backup
 sudo cp ~/Turtlebot2_Kinect2/TB2+Kinect2/turtlebot_rviz_launchers/rviz/navigation.rviz /opt/ros/kinetic/share/turtlebot_rviz_launchers/rviz
 cd ~/catkin_ws/src/kobuki_x_project/kobuki_x_description/urdf/robots/
-cp kobuki_circle_board_kinect2_rplidar_a2.urdf.xacro kobuki_circle_board_kinect2_ldslidar.urdf.xacro
-cp kobuki_circle_board_rplidar_a2.urdf.xacro kobuki_circle_board_ldslidar.urdf.xacro
+# cp kobuki_circle_board_kinect2_rplidar_a2.urdf.xacro kobuki_circle_board_kinect2_ldslidar.urdf.xacro
+# cp kobuki_circle_board_rplidar_a2.urdf.xacro kobuki_circle_board_ldslidar.urdf.xacro
 sudo cp *ldslidar* /opt/ros/kinetic/share/turtlebot_description/robots/ -v
 cd ~/
 if [ ! -d "catkin_ws" ]; then
